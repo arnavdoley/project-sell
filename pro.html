@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Humanary — Only The Extraordinary Qualify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold-light: #e8c87a;
+    --gold-mid: #c9a84c;
+    --gold-dark: #8a6a20;
+    --gold-deep: #5a4010;
+    --dark: #1a1508;
+    --dark-2: #2c2208;
+    --dark-3: #3d3010;
+    --off-white: #f5edd8;
+    --cream: #fdf6e3;
+    --text-muted: #a08840;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--dark);
+    color: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: linear-gradient(to bottom, rgba(26,21,8,0.95) 0%, transparent 100%);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-h {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--gold-mid);
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: var(--gold-mid);
+    border: none;
+    padding: 0.6rem 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, #3d2e05 0%, var(--dark) 70%);
+  }
+
+  .hero::before {
+    content: 'H';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60vw;
+    font-weight: 600;
+    color: rgba(201,168,76,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  .hero-logo-mark {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 2rem;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--off-white);
+  }
+
+  .hero-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold-mid);
+    margin: 2rem auto;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 300;
+    color: var(--off-white);
+    max-width: 560px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dark);
+    background: var(--gold-mid);
+    border: 1px solid var(--gold-mid);
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+  }
+
+  .btn-outline {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    background: transparent;
+    border: 1px solid var(--gold-dark);
+    padding: 0.9rem 2.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold-mid);
+    color: var(--gold-light);
+  }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: var(--gold-mid);
+    padding: 0.8rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+  }
+
+  .marquee-inner span {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dark);
+    padding: 0 3rem;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTION SHELL */
+  section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-full {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--off-white);
+  }
+
+  .section-body {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,237,216,0.7);
+    max-width: 600px;
+  }
+
+  hr.gold-rule {
+    border: none;
+    border-top: 1px solid var(--gold-dark);
+    margin: 4rem 0;
+  }
+
+  /* MANIFESTO */
+  .manifesto-section {
+    background: linear-gradient(135deg, #2a1e02 0%, #1a1508 50%, #221a04 100%);
+    padding: 7rem 4rem;
+  }
+
+  .manifesto-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .manifesto-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--off-white);
+    border-left: 2px solid var(--gold-mid);
+    padding-left: 2rem;
+  }
+
+  .manifesto-copy p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245,237,216,0.7);
+    margin-bottom: 1.25rem;
+  }
+
+  /* PROCESS */
+  .process-section {
+    background: var(--dark);
+    padding: 7rem 4rem;
+  }
+
+  .process-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+  }
+
+  .process-step {
+    background: var(--dark-2);
+    padding: 3rem 2.5rem;
+    position: relative;
+    border: 1px solid rgba(201,168,76,0.1);
+    transition: border-color 0.4s;
+  }
+
+  .process-step:hover {
+    border-color: rgba(201,168,76,0.35);
+  }
+
+  .step-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.12);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .step-tag {
+    display: inline-block;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-mid);
+    border: 1px solid var(--gold-dark);
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .step-body {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,237,216,0.55);
+  }
+
+  .ai-badge {
+    display: inline-block;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-mid);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 0.25rem 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  /* WHO WE SERVE */
+  .serve-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .serve-card {
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(61,48,16,0.3) 0%, transparent 100%);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .serve-card:hover {
+    border-color: rgba(201,168,76,0.4);
+    background: linear-gradient(135deg, rgba(61,48,16,0.5) 0%, rgba(44,34,8,0.3) 100%);
+  }
+
+  .serve-icon {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+    color: var(--gold-mid);
+  }
+
+  .serve-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+
+  .serve-body {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,237,216,0.55);
+  }
+
+  /* WHY HUMANARY */
+  .why-section {
+    background: var(--dark-2);
+    padding: 7rem 4rem;
+  }
+
+  .why-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .why-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-left: 1px solid rgba(201,168,76,0.2);
+    transition: border-color 0.3s;
+  }
+
+  .why-item:hover { border-color: var(--gold-mid); }
+
+  .why-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba(201,168,76,0.25);
+    flex-shrink: 0;
+    line-height: 1.1;
+  }
+
+  .why-content-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .why-content-body {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,237,216,0.55);
+  }
+
+  /* AI SECTION */
+  .ai-section {
+    background: linear-gradient(180deg, var(--dark) 0%, #1e1603 50%, var(--dark) 100%);
+    padding: 7rem 4rem;
+    text-align: center;
+  }
+
+  .ai-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .ai-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .ai-body {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(245,237,216,0.65);
+    margin-bottom: 3rem;
+  }
+
+  .ai-pillars {
+    display: flex;
+    justify-content: center;
+    gap: 1px;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+
+  .ai-pillar {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 1.5rem 2rem;
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+  }
+
+  .ai-pillar-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .ai-pillar-body {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(245,237,216,0.5);
+    line-height: 1.7;
+  }
+
+  /* STANDARDS */
+  .standards-section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .standards-list {
+    list-style: none;
+    margin-top: 3rem;
+  }
+
+  .standards-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .standards-list li:first-child { border-top: 1px solid rgba(201,168,76,0.1); }
+
+  .std-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--gold-dark);
+    flex-shrink: 0;
+    width: 2rem;
+    line-height: 1.1;
+  }
+
+  .std-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .std-body {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(245,237,216,0.5);
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--dark-2);
+    padding: 7rem 4rem;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-sub {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(245,237,216,0.6);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .contact-channels {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .contact-channel {
+    text-align: center;
+  }
+
+  .contact-channel-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-channel-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gold-light);
+  }
+
+  .contact-channel-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .contact-channel-value a:hover { color: var(--off-white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold-mid);
+    letter-spacing: 0.15em;
+  }
+
+  .footer-tagline {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+
+  .footer-right {
+    font-size: 0.72rem;
+    color: rgba(245,237,216,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  /* SCROLL ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SVG Logo Mark */
+  .logo-svg path, .logo-svg rect, .logo-svg circle { fill: var(--gold-mid); }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.25rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .manifesto-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .process-steps { grid-template-columns: 1fr; }
+    .serve-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .ai-pillars { flex-direction: column; }
+    footer { flex-direction: column; text-align: center; }
+    .manifesto-section, .process-section, .why-section, .ai-section, .contact-section { padding: 5rem 1.5rem; }
+    .standards-section { padding: 5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg class="logo-svg" width="28" height="28" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="14" height="48" rx="2" fill="#c9a84c"/>
+      <rect x="40" y="6" width="14" height="48" rx="2" fill="#c9a84c"/>
+      <rect x="6" y="24" width="48" height="12" rx="2" fill="#c9a84c"/>
+      <circle cx="30" cy="16" r="6" fill="#1a1508"/>
+      <circle cx="30" cy="16" r="4" fill="#c9a84c"/>
+    </svg>
+    <span class="nav-logo-h">THE HUMANARY</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#who">Who We Serve</a></li>
+    <li><a href="#standards">Our Standard</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Engage Us</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">AI-Native Leadership Intelligence</p>
+  <div class="hero-logo-mark">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="12" y="12" width="28" height="96" rx="3" fill="#c9a84c" opacity="0.9"/>
+      <rect x="80" y="12" width="28" height="96" rx="3" fill="#c9a84c" opacity="0.9"/>
+      <rect x="12" y="48" width="96" height="24" rx="3" fill="#c9a84c" opacity="0.9"/>
+      <circle cx="60" cy="33" r="13" fill="#1a1508"/>
+      <circle cx="60" cy="33" r="9" fill="#c9a84c" opacity="0.9"/>
+    </svg>
+  </div>
+  <h1 class="hero-title">Finding the people<br>behind the <em>next</em><br>generation of AI.</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">The builders. The operators. The extraordinary.</p>
+  <p class="hero-tagline">Only the extraordinary qualify.</p>
+  <div class="hero-actions">
+    <a href="#contact" class="btn-primary">Begin the Conversation</a>
+    <a href="#process" class="btn-outline">Our Process</a>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span>For AI Startups</span>
+    <span>·</span>
+    <span>For Founders</span>
+    <span>·</span>
+    <span>For Businesses Building the Future</span>
+    <span>·</span>
+    <span>Hire Operators, Not Presenters</span>
+    <span>·</span>
+    <span>AI-Driven Assessment</span>
+    <span>·</span>
+    <span>For AI Startups</span>
+    <span>·</span>
+    <span>For Founders</span>
+    <span>·</span>
+    <span>For Businesses Building the Future</span>
+    <span>·</span>
+    <span>Hire Operators, Not Presenters</span>
+    <span>·</span>
+    <span>AI-Driven Assessment</span>
+    <span>·</span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<div class="manifesto-section fade-in" id="about">
+  <div class="manifesto-grid">
+    <div>
+      <p class="section-label">Our Thesis</p>
+      <blockquote class="manifesto-quote">
+        "The best interviewers rarely become the best executives."
+      </blockquote>
+    </div>
+    <div class="manifesto-copy">
+      <p>Leadership hiring has a fundamental flaw. The traditional process rewards presentation — polished CVs, rehearsed answers, borrowed confidence. The result is a crisis-level mismatch between who looks good in an interview and who actually executes.</p>
+      <p>The Humanary was built to solve this. We are an AI-native leadership intelligence and search firm, purpose-built for the organisations shaping the next era of technology in India and beyond.</p>
+      <p>We don't place candidates. We validate operators. Every leader we surface has passed an AI-driven capability assessment, a structured execution review, and a rigorous human evaluation. Only the extraordinary qualify.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="process-section fade-in" id="process">
+  <div class="process-inner">
+    <p class="section-label">How We Work</p>
+    <h2 class="section-title">Our <em>AI-Driven</em> Process</h2>
+    <p class="section-body">Every placement begins with intelligence, not intuition. Our process is built on three pillars — each powered by AI, each refined by human judgment.</p>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-tag">AI Intelligence</div>
+        <h3 class="step-title">Assessment & Profiling</h3>
+        <p class="step-body">Every candidate enters our AI-driven evaluation engine. We go beyond the CV — mapping execution history, outcomes delivered, teams built, and decisions made. Our assessment module scores leadership capability across dimensions that matter: strategic thinking, execution speed, operator mindset, and AI fluency.</p>
+        <div class="ai-badge">Powered by AI Assessment</div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <div class="step-tag">AI Interview</div>
+        <h3 class="step-title">Structured AI Interview</h3>
+        <p class="step-body">We deploy AI-facilitated structured interviews that eliminate bias and force consistency. Every candidate answers the same validated questions. Our AI analyses depth of response, consistency of narrative, and evidence of real execution — before a single human hour is invested.</p>
+        <div class="ai-badge">AI Interview Module</div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-tag">Human Verdict</div>
+        <h3 class="step-title">Expert Validation & Placement</h3>
+        <p class="step-body">AI gives us precision. Our experts give you confidence. Every shortlisted candidate is reviewed by a Humanary advisor — a former operator or executive themselves — who stress-tests the data, conducts deep-reference validation, and delivers a final recommendation you can build a company on.</p>
+        <div class="ai-badge">Human-in-the-Loop</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHO WE SERVE -->
+<section id="who" class="fade-in">
+  <p class="section-label">For Those Building What's Next</p>
+  <h2 class="section-title">Who We <em>Serve</em></h2>
+  <p class="section-body">We work exclusively with organisations where leadership quality is existential — where the wrong hire can cost everything and the right one can change everything.</p>
+
+  <div class="serve-grid">
+    <div class="serve-card">
+      <div class="serve-icon">◈</div>
+      <h3 class="serve-title">AI Startups & Scaleups</h3>
+      <p class="serve-body">From Series A to Series D, we find the CXOs, VPs, and operators who can build fast, lead distributed teams, and thrive in ambiguity. We understand what it takes to lead in an AI-native company — because we've built one.</p>
+    </div>
+    <div class="serve-card">
+      <div class="serve-icon">◈</div>
+      <h3 class="serve-title">Founders</h3>
+      <p class="serve-body">Your first CXO hire is one of the highest-stakes decisions you'll make. We don't just find someone who looks good — we find someone who complements how you operate. Our Founder-CXO Compatibility Assessment ensures strategic and cultural alignment from day one.</p>
+    </div>
+    <div class="serve-card">
+      <div class="serve-icon">◈</div>
+      <h3 class="serve-title">Businesses Building the Future</h3>
+      <p class="serve-body">PE-backed companies, GCCs, and enterprise organisations undergoing transformation need leaders who can execute — not just manage. We source from a universe your search firm doesn't know about, and validate in a way they're not capable of.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI MODULE HIGHLIGHT -->
+<div class="ai-section fade-in">
+  <div class="ai-inner">
+    <p class="section-label">Our Technology</p>
+    <h2 class="ai-headline">Intelligent by design.<br><em>Human where it counts.</em></h2>
+    <p class="ai-body">The Humanary's process is AI-driven at every stage — not as a feature, but as a philosophy. We believe the future of leadership hiring is built on data, structured science, and accountability — not gut-feel and relationships. Our AI doesn't make decisions. It eliminates noise so our experts can make better ones.</p>
+
+    <div class="ai-pillars">
+      <div class="ai-pillar">
+        <div class="ai-pillar-title">AI Assessment</div>
+        <p class="ai-pillar-body">Execution capability scoring across multiple dimensions — going well beyond a CV review.</p>
+      </div>
+      <div class="ai-pillar">
+        <div class="ai-pillar-title">AI Interview</div>
+        <p class="ai-pillar-body">Structured, bias-free AI interviews that measure depth of execution evidence, not presentation skill.</p>
+      </div>
+      <div class="ai-pillar">
+        <div class="ai-pillar-title">AI Fluency</div>
+        <p class="ai-pillar-body">Proprietary scoring of a candidate's literacy, comfort, and strategic use of AI tools — critical for AI-native organisations.</p>
+      </div>
+      <div class="ai-pillar">
+        <div class="ai-pillar-title">Human Oversight</div>
+        <p class="ai-pillar-body">Every AI output is auditable, explainable, and reviewed by a senior human advisor before any recommendation is made.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY HUMANARY -->
+<div class="why-section fade-in">
+  <div class="why-inner">
+    <p class="section-label">The Difference</p>
+    <h2 class="section-title">Why <em>Humanary</em></h2>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">I</div>
+        <div>
+          <h4 class="why-content-title">We validate execution, not presentation</h4>
+          <p class="why-content-body">Our assessment methodology evaluates what leaders have actually delivered — revenue built, teams scaled, decisions made under pressure — not how well they perform in an interview room.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">II</div>
+        <div>
+          <h4 class="why-content-title">We move faster without cutting corners</h4>
+          <p class="why-content-body">AI-powered screening reduces your shortlist timeline from 60–90 days to under 30 — while improving candidate quality, not sacrificing it.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">III</div>
+        <div>
+          <h4 class="why-content-title">We work exclusively, not broadly</h4>
+          <p class="why-content-body">The Humanary does not serve every company. We work with a select number of organisations at a time — ensuring every engagement receives our full attention and our best work.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">IV</div>
+        <div>
+          <h4 class="why-content-title">We are accountable for outcomes</h4>
+          <p class="why-content-body">Our process doesn't end at placement. We track post-hire outcomes because our reputation depends not on placing leaders — but on them succeeding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUR STANDARD -->
+<section class="standards-section fade-in" id="standards">
+  <p class="section-label">What We Stand For</p>
+  <h2 class="section-title">The <em>Humanary</em> Standard</h2>
+
+  <ul class="standards-list">
+    <li>
+      <span class="std-letter">E</span>
+      <div>
+        <div class="std-title">Execution over everything</div>
+        <p class="std-body">We care about what you've done, not what you can say about it. Our entire methodology is built around identifying leaders who ship, deliver, and build — not those who are merely brilliant in conversation.</p>
+      </div>
+    </li>
+    <li>
+      <span class="std-letter">I</span>
+      <div>
+        <div class="std-title">Intelligence, not intuition</div>
+        <p class="std-body">Every recommendation we make is backed by structured data, AI-driven assessment, and validated reference intelligence — not a recruiter's instinct or a Rolodex relationship.</p>
+      </div>
+    </li>
+    <li>
+      <span class="std-letter">D</span>
+      <div>
+        <div class="std-title">Discretion as default</div>
+        <p class="std-body">Leadership searches are sensitive. We operate with full confidentiality on both sides — protecting our clients' strategic intent and our candidates' professional standing throughout every engagement.</p>
+      </div>
+    </li>
+    <li>
+      <span class="std-letter">A</span>
+      <div>
+        <div class="std-title">Accountability, not just placement</div>
+        <p class="std-body">We don't celebrate filling a role. We celebrate the outcomes that follow. The Humanary tracks performance, measures post-hire success, and holds itself to the standard of results — not activity.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section fade-in" id="contact">
+  <div class="contact-inner">
+    <p class="section-label">Begin</p>
+    <h2 class="contact-title">Only the extraordinary<br><em>qualify to work with us.</em></h2>
+    <p class="contact-sub">If you are building something significant and need leaders who can match your ambition — we should speak. We take a limited number of new client engagements at a time to ensure quality never suffers.</p>
+
+    <div class="contact-channels">
+      <div class="contact-channel">
+        <p class="contact-channel-label">Phone</p>
+        <p class="contact-channel-value"><a href="tel:9366007304">9366 007 304</a></p>
+      </div>
+      <div style="width:1px; background: rgba(201,168,76,0.2); margin: 0 1rem;"></div>
+      <div class="contact-channel">
+        <p class="contact-channel-label">Email</p>
+        <p class="contact-channel-value"><a href="mailto:hire@thehumanary.com">hire@thehumanary.com</a></p>
+      </div>
+    </div>
+
+    <a href="mailto:hire@thehumanary.com" class="btn-primary">Engage The Humanary</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">THE HUMANARY</div>
+    <div class="footer-tagline" style="margin-top:0.4rem;">Only the extraordinary qualify.</div>
+  </div>
+  <div class="footer-right">
+    © 2025 The Humanary. All rights reserved.<br>
+    AI-Native Leadership Intelligence · India
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
